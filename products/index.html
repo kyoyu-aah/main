@@ -6,6 +6,17 @@
   <link rel="stylesheet" href="./normal.css">
   <meta name="robots" content="noindex, nofollow">
   <title>ものおきば</title>
+  
+  <!-- MathJaxの設定: $...$ でのインライン表示を有効にする -->
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']]
+      }
+    };
+  </script>
+  <!-- 最新版のMathJaxを読み込み -->
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
 <body>
   <h3>制作物</h3>
@@ -13,5 +24,8 @@
     <li><a href="syugo1.pdf">集合論1</a></li>
     <li><a href="syugo2.pdf">集合論2</a></li>
   </ul>
- </body>
+  <p>
+    上のものは$\LaTeX$練習用に作ったもので推敲もしていないので、表示が汚いし一貫性もなく、さらに間違っている可能性があります。上手に活用してください。
+  </p>
+</body>
 </html>
