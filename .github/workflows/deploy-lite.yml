@@ -1,0 +1,45 @@
+name: Deploy Lite Site
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: チェックアウト
+        uses: actions/checkout@v4
+
+      - name: 軽量版を生成（CSSを除去）
+        run: |
+          mkdir -p lite-output
+          find . -name "*.html" \
+            -not -path "./.git/*" \
+            -not -path "./lite-output/*" | while read f; do
+              dir="lite-output/$(dirname "$f")"
+              mkdir -p "$dir"
+              perl -0777 -pe '
+                s/<link[^>]+rel=["\x27]stylesheet["\x27][^>]*\/?>//gi;
+                s/<style[^>]*>.*?<\/style>//gsi;
+                s/ style="[^"]*"//gi;
+              ' "$f" > "lite-output/$f"
+          done
+          rsync -av \
+            --exclude='*.html' \
+            --exclude='.git' \
+            --exclude='.github' \
+            --exclude='lite-output' \
+            . lite-output/
+
+      - name: 軽量版リポジトリへデプロイ
+        uses: cpina/github-action-push-to-another-repository@main
+        env:
+          API_TOKEN_GITHUB: ${{ secrets.LITE_REPO_TOKEN }}
+        with:
+          source-directory: lite-output
+          destination-github-username: 'kyoyu-aah'
+          destination-repository-name: 'light'
+          target-branch: main
+          commit-message: 'Auto-generated lite version'
