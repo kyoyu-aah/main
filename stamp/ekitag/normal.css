@@ -1,0 +1,65 @@
+/* ------------------------------
+   全体
+------------------------------ */
+body {
+  margin: 0;
+  padding: 40px 20px;
+  font-family: "Noto Sans JP", system-ui, sans-serif;
+  background: #f5f6fa;
+  color: #333;
+  line-height: 1.8;
+  text-align: left;
+}
+
+/* ------------------------------
+   見出し（そのまま強調）
+------------------------------ */
+h3 {
+  font-size: 1.6rem;
+  margin: 24px 0 12px;
+  color: #222;
+  border-left: 4px solid #4b7bec;
+  padding-left: 10px;
+}
+
+/* ------------------------------
+   リンク（カード型）
+------------------------------ */
+ul {
+  list-style: none;
+  padding-left: 0;
+  margin-bottom: 20px;
+}
+
+ul li {
+  margin-bottom: 12px;
+}
+
+ul li a {
+  display: inline-block;
+  padding: 10px 14px;
+  background: #fff;
+  border-radius: 8px;
+  text-decoration: none;
+  color: #4b7bec;
+  font-weight: 600;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.06);
+  transition: 0.15s ease;
+}
+
+ul li a:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+}
+
+/* ------------------------------
+   見出し・リンク以外のテキストは普通の黒文字
+------------------------------ */
+ul li + br,
+ul + br,
+ul + p,
+p {
+  font-size: 0.95rem;
+  color: #444;
+  margin: 6px 0 12px;
+}
