@@ -1,0 +1,86 @@
+/* ------------------------------
+   全体
+------------------------------ */
+body {
+  margin: 0;
+  padding: 40px 20px;
+  font-family: "Noto Sans JP", system-ui, sans-serif;
+  background: #f5f6fa;
+  color: #333;
+  line-height: 1.8;
+  text-align: left;
+}
+
+/* ------------------------------
+   h3（スタンプ） → 他ページと同じデザイン
+------------------------------ */
+h3 {
+  font-size: 1.6rem;
+  margin: 24px 0 12px;
+  color: #222;
+  border-left: 4px solid #4b7bec;
+  padding-left: 10px;
+}
+
+/* ------------------------------
+   リスト全体（横並び・折り返し）
+------------------------------ */
+ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+/* ------------------------------
+   各アイテム（縦並び・中央揃え）
+------------------------------ */
+li {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 150px;
+  margin-bottom: 15px;
+}
+
+/* ------------------------------
+   駅名リンク（カード風にしない）
+------------------------------ */
+li a {
+  text-align: center;
+  font-size: 14px;
+  text-decoration: none;
+  word-break: break-all;
+  min-height: 2.4em;
+
+  /* カード風は削除 → 背景なし・影なし */
+  background: none;
+  border-radius: 0;
+  box-shadow: none;
+
+  /* 色は青のまま */
+  color: #4b7bec;
+  font-weight: 600;
+
+  /* ホバー時の浮き上がりだけ残す */
+  transition: 0.15s ease;
+}
+
+/* ホバーで少し浮く（影はつけない） */
+li a:hover {
+  transform: translateY(-2px);
+}
+
+/* ------------------------------
+   画像（変更なし）
+------------------------------ */
+.thumbnail {
+  display: block;
+  margin-top: 8px;
+  width: 100%;
+  max-width: 140px;
+  height: auto;
+  border: 1px solid #ccc;
+  background-color: #f9f9f9;
+}
